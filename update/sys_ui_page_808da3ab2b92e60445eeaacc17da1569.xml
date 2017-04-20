@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_kasp_vulnerabilt_YQL Test.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	<style type='text/css'>  
+    #results{ margin: auto; border: 1px solid gray; padding: 5px; height: 600px; width: 700px; overflow: auto; }   
+  </style>  
+	<script type = "text/javascript">
+	function top_stories(o){
+	var items = o.query.results.item;
+	var output = '';
+	var no_items=items.length;
+	for(var i=0;i ${AMP}lt; no_items;i++){
+		var title = items[i].title;
+		var link = items[i].link;
+		var desc = items[i].description;
+		output += " ${AMP}lt;h3 ${AMP}gt; ${AMP}lt;a href='" + link + "' ${AMP}gt;"+title+" ${AMP}lt;/a ${AMP}gt; ${AMP}lt;/h3 ${AMP}gt;" + desc + " ${AMP}lt;hr/ ${AMP}gt;";
+	}
+	// Place news stories in div tag
+	document.getElementById('results').innerHTML = output;
+}</script>
+  <body>  
+    <!-- Div tag for stories results -->  
+    <div id='results'></div>  
+    <!-- The YQL statment will be assigned to src. -->  
+    <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22https%3A%2F%2Fisc.sans.edu%2F%2Fnewssummaryrss.xml%22$[AMP]format=json$[AMP]diagnostics=true$[AMP]callback=top_stories'></script>  
+  </body>  
+
+</j:jelly>]]></html>
+        <name>YQL Test</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>danpal01</sys_created_by>
+        <sys_created_on>2016-10-12 20:38:06</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>808da3ab2b92e60445eeaacc17da1569</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>YQL Test</sys_name>
+        <sys_package display_value="Vulnerabilty" source="x_kasp_vulnerabilt">09561e4113da22c053dc51522244b030</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Vulnerabilty">09561e4113da22c053dc51522244b030</sys_scope>
+        <sys_update_name>sys_ui_page_808da3ab2b92e60445eeaacc17da1569</sys_update_name>
+        <sys_updated_by>danpal01</sys_updated_by>
+        <sys_updated_on>2016-10-12 20:57:55</sys_updated_on>
+    </sys_ui_page>
+</record_update>

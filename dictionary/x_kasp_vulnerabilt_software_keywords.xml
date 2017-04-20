@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Software Keywords" max_length="40" name="x_kasp_vulnerabilt_software_keywords" type="collection">
+        <element attributes="no_sort=true,slushbucket_ref_no_expand=true" label="Groups" max_length="1024" name="groups" reference="sys_user_group" type="glide_list"/>
+        <element label="Ignore" max_length="40" name="ignore" type="boolean"/>
+        <element display="true" label="Software" max_length="100" name="software" type="string"/>
+    </element>
+</database>

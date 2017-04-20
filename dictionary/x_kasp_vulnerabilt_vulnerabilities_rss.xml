@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Vulnerabilities RSS" max_length="40" name="x_kasp_vulnerabilt_vulnerabilities_rss" type="collection">
+        <element label="Article" max_length="65536" name="article" type="html"/>
+        <element attributes="no_sort=true,slushbucket_ref_no_expand=true" label="Groups" max_length="1024" name="groups" reference="sys_user_group" type="glide_list"/>
+        <element attributes="edge_encryption_enabled=true" label="Software" max_length="40" name="software" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Title" max_length="1000" name="title" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="URL" max_length="1000" name="url" read_only="true" type="url"/>
+    </element>
+</database>

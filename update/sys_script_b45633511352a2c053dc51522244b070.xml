@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_label/>
+        <action_name/>
+        <action_query>false</action_query>
+        <action_run_at>server</action_run_at>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <application/>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_kasp_vulnerabilt_vulnerabilities_rss</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Create Tasks</name>
+        <onclick/>
+        <order>100</order>
+        <priority>100</priority>
+        <read_access_action>false</read_access_action>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	
+	if(current.getValue("software") != "" && current.getValue("software") != null){
+		//gs.addInfoMessage('Software ' + current.getValue("software"));
+createTask(current.getValue('software'),current.getValue('title'),current.getValue('url'));
+	
+	}
+	
+	function createTask(software,title,url){
+		var project_id = '2b7483f80f1072044789e34be1050e81';
+		var software_ci = '53872bd50a0a3c1c00953ac4dcf6513f';
+		var sccm_admins_grp = 'db991fdd139e62c053dc51522244b0bd';
+		var retail_group = 'ecf325920a0a3c1c00544ee3005083e0';
+		
+		var groups = current.getValue('groups').split(',');
+		
+		for(var gr in groups){
+			if(groups[gr] == sccm_admins_grp){
+				createProjectTask(project_id,software_ci,sccm_admins_grp,software,title,url);
+			}
+			/*
+			if(groups[gr] == retail_group){
+				createIncident(software_ci,retail_group,software,title,url);
+			}
+			*/
+		}
+		
+	}
+	
+	function createIncident(software_ci,group,software,title,url){
+		var it_security = '6cba959eb185b1003ff3bc7516ad88ad';//IT security user
+		var inc = new GlideRecord('incident');
+		inc.setValue('caller_id', it_security);
+		inc.setValue('cmdb_ci', software_ci);
+		inc.setValue('assignment_group',group);
+		inc.setValue('short_description','Possible vulnerability reported on ' + software + ' software');
+		inc.setValue('u_security_investigation',true);
+		inc.setValue('priority',3);
+		
+		var desc = 'Vulnerability was reported via RSS Feed\n';
+		desc += 'Software: ' + software + '\n';
+		desc += 'Title: ' + title + '\n';
+		desc += 'URL: ' + url;
+		
+		inc.comments = desc;
+		inc.insert();
+	}
+	
+	function createProjectTask(project_id,software_ci,group,software,title,url){
+		var proj_task = new GlideRecord('pm_project_task');
+		proj_task.setValue('parent',project_id);
+		proj_task.setValue('cmdb_ci', software_ci);
+		proj_task.setValue('assignment_group',group);
+		proj_task.setValue('short_description','Possible vulnerability reported on ' + software + ' software');
+		
+		var desc = 'Vulnerability was reported via RSS Feed\n';
+		desc += 'Software: ' + software + '\n';
+		desc += 'Title: ' + title + '\n';
+		desc += 'URL: ' + url;
+		
+		proj_task.setValue('description',desc);
+		
+		proj_task.insert();
+	}
+	
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>sebgar01</sys_created_by>
+        <sys_created_on>2016-10-05 21:27:12</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>b45633511352a2c053dc51522244b070</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>Create Tasks</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Vulnerabilty" source="x_kasp_vulnerabilt">09561e4113da22c053dc51522244b030</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Vulnerabilty">09561e4113da22c053dc51522244b030</sys_scope>
+        <sys_update_name>sys_script_b45633511352a2c053dc51522244b070</sys_update_name>
+        <sys_updated_by>sebgar01</sys_updated_by>
+        <sys_updated_on>2017-04-14 17:42:10</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+</record_update>

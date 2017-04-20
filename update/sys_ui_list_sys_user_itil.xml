@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="sys_user" version="2" view="itil">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>user_name</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="f30c9e294a36232a010f840778d0c806">2e13886e87af5900ae0246089d434d53</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>SKP</sys_created_by>
+            <sys_created_on>2014-03-21 23:13:54</sys_created_on>
+            <sys_id>7213886e87af5900ae0246089d434d55</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>SKP</sys_updated_by>
+            <sys_updated_on>2014-03-21 23:13:54</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>name</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="f30c9e294a36232a010f840778d0c806">2e13886e87af5900ae0246089d434d53</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>SKP</sys_created_by>
+            <sys_created_on>2014-03-21 23:13:54</sys_created_on>
+            <sys_id>f613886e87af5900ae0246089d434d55</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>SKP</sys_updated_by>
+            <sys_updated_on>2014-03-21 23:13:54</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>last_name</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="f30c9e294a36232a010f840778d0c806">2e13886e87af5900ae0246089d434d53</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>SKP</sys_created_by>
+            <sys_created_on>2014-03-21 23:13:54</sys_created_on>
+            <sys_id>7a13886e87af5900ae0246089d434d55</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>SKP</sys_updated_by>
+            <sys_updated_on>2014-03-21 23:13:54</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>title</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="f30c9e294a36232a010f840778d0c806">2e13886e87af5900ae0246089d434d53</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>SKP</sys_created_by>
+            <sys_created_on>2014-03-21 23:13:54</sys_created_on>
+            <sys_id>fa13886e87af5900ae0246089d434d55</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>SKP</sys_updated_by>
+            <sys_updated_on>2014-03-21 23:13:54</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>phone</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="f30c9e294a36232a010f840778d0c806">2e13886e87af5900ae0246089d434d53</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>SKP</sys_created_by>
+            <sys_created_on>2014-03-21 23:13:54</sys_created_on>
+            <sys_id>7e13886e87af5900ae0246089d434d55</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>SKP</sys_updated_by>
+            <sys_updated_on>2014-03-21 23:13:54</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>sys_user</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>danpal01</sys_created_by>
+            <sys_created_on>2016-10-14 12:44:25</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>8346d4542beeaa0445eeaacc17da15ab</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sys_user</sys_name>
+            <sys_package display_value="Vulnerabilty" source="x_kasp_vulnerabilt">09561e4113da22c053dc51522244b030</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Vulnerabilty">09561e4113da22c053dc51522244b030</sys_scope>
+            <sys_update_name>sys_ui_list_sys_user_itil</sys_update_name>
+            <sys_updated_by>danpal01</sys_updated_by>
+            <sys_updated_on>2016-10-14 12:44:25</sys_updated_on>
+            <sys_user display_value="Daniel Palmer">0e057446877379402d2d098e59434d55</sys_user>
+            <view display_value="ITIL" name="itil">f30c9e294a36232a010f840778d0c806</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

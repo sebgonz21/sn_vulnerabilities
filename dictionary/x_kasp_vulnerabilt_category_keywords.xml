@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Category Keywords" max_length="40" name="x_kasp_vulnerabilt_category_keywords" type="collection">
+        <element display="true" label="Keyword" max_length="40" name="keyword" type="string"/>
+    </element>
+</database>

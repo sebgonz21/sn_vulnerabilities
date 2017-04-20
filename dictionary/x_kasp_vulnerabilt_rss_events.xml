@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="RSS Events" max_length="40" name="x_kasp_vulnerabilt_rss_events" type="collection"/>
+</database>

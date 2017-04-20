@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_application">
+    <sys_ui_application action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <hint/>
+        <name>Vulnerabilities KS</name>
+        <order/>
+        <roles>x_kasp_vulnerabilt_vulnerabilities_rss_user</roles>
+        <sys_class_name>sys_ui_application</sys_class_name>
+        <sys_created_by>sebgar01</sys_created_by>
+        <sys_created_on>2016-10-04 20:11:04</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>94acd20d13da22c053dc51522244b04e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Vulnerabilities KS</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Vulnerabilty" source="x_kasp_vulnerabilt">09561e4113da22c053dc51522244b030</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Vulnerabilty">09561e4113da22c053dc51522244b030</sys_scope>
+        <sys_update_name>sys_ui_application_94acd20d13da22c053dc51522244b04e</sys_update_name>
+        <sys_updated_by>sebgar01</sys_updated_by>
+        <sys_updated_on>2016-10-04 20:11:04</sys_updated_on>
+    </sys_ui_application>
+</record_update>

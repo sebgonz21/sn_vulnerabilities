@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_filter">
+    <sys_filter action="INSERT_OR_UPDATE">
+        <filter table="sys_user">nameSTARTSWITHsa^nameISNOTEMPTY^EQ<item endquery="false" field="name" goto="false" newquery="false" operator="STARTSWITH" or="false" value="sa"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter>
+        <group/>
+        <last_used>2016-10-05 17:24:00</last_used>
+        <mobile>true</mobile>
+        <roles/>
+        <sys_class_name>sys_filter</sys_class_name>
+        <sys_created_by>HAR3</sys_created_by>
+        <sys_created_on>2016-10-05 17:24:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>72ff72d9131e62c053dc51522244b02a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>mobile</sys_name>
+        <sys_package display_value="Vulnerabilty" source="x_kasp_vulnerabilt">09561e4113da22c053dc51522244b030</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Vulnerabilty">09561e4113da22c053dc51522244b030</sys_scope>
+        <sys_update_name>sys_filter_72ff72d9131e62c053dc51522244b02a</sys_update_name>
+        <sys_updated_by>HAR3</sys_updated_by>
+        <sys_updated_on>2016-10-05 17:24:00</sys_updated_on>
+        <table>sys_user</table>
+        <title>mobile</title>
+        <user display_value="Harry Reid">f3c54b770a0a3c1c01caa30a32152b4a</user>
+    </sys_filter>
+</record_update>

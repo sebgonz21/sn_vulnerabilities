@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[var app = angular.module('vulnerabilty',['ngSanitize']);
+
+app.controller('appController',['$scope','$http','$sce', function($scope,$http,$sce){
+	
+	$scope.vuls = [];
+	
+	$scope.getVulnerabilities = function(){
+		
+		$http({
+			url:'/api/now/table/x_kasp_vulnerabilt_vulnerabilities_rss',
+			method: 'GET',
+			headers:{
+				'X-UserToken': window.g_ck.toString()
+			}
+		}).success(function(data,status){
+			
+
+			var obj;
+			//var html;
+			for(var i = 0; i < data.result.length;i++){
+				//html = $sce.trustAsHtml();
+				//console.log("HTML " +html);
+				obj = {
+					url:data.result[i].url,
+					title:data.result[i].title
+				};					
+					
+				$scope.vuls.push(obj);}
+			
+		}).error(function(){
+			
+		});
+		
+	};
+	
+	
+	$scope.getVulnerabilities();
+	
+}]);
+
+app.directive('vulFound',function(){
+	
+	var t ='<div class = "col-lg-6 span6"><h3>{{v.title}}</h3><a href ="{{v.url}}">Link</a>';
+	t+= '<br>';
+	t+= '<button class = "button">Create Task</button></div>';
+	
+	
+	
+	return{
+		replace:true,
+		template: t,
+				
+	};
+	
+});
+
+
+
+$(".capital").each(function(i,obj){
+		
+		$(obj).css({"text-transform":"capitalize","margin-top":"50px"  , "text-align": "center" , "border-style": "solid" , "border-width":".5px","width":"250px", "height":"250px"});
+	
+});
+
+
+]]></client_script>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_kasp_vulnerabilt_vulnerability_page.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+
+	<g:requires name="my_angular_min.jsdbx"/>
+	<g:requires name="my_jquery_min.jsdbx"/>
+	<g:requires name="my_jquery_ui_min.jsdbx"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-sanitize.js"></script>
+	<style>
+	#header {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #008000;
+		border-style: double;
+		border-color: #C0C0C0;
+		text-align: center;
+		color: white;
+	
+	}
+
+	#header li {
+		float: left;
+	}
+		
+	button{
+		text-align:right;
+	}
+	</style>
+	<div id = "header"><h1>The Feed</h1></div>
+	
+	
+	<div ng-app='vulnerabilty'>
+		<div ng-controller = 'appController'>
+			
+			<div ng-repeat="v in vuls" class = 'capital container'>
+				
+				<vul-found>
+				
+				</vul-found>
+			</div>
+			
+		</div>
+	</div>
+	
+</j:jelly>]]></html>
+        <name>vulnerability_page</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>sebgar01</sys_created_by>
+        <sys_created_on>2016-10-04 19:48:37</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>bb56128113da22c053dc51522244b026</sys_id>
+        <sys_mod_count>182</sys_mod_count>
+        <sys_name>vulnerability_page</sys_name>
+        <sys_package display_value="Vulnerabilty" source="x_kasp_vulnerabilt">09561e4113da22c053dc51522244b030</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Vulnerabilty">09561e4113da22c053dc51522244b030</sys_scope>
+        <sys_update_name>sys_ui_page_bb56128113da22c053dc51522244b026</sys_update_name>
+        <sys_updated_by>danpal01</sys_updated_by>
+        <sys_updated_on>2016-10-14 18:54:58</sys_updated_on>
+    </sys_ui_page>
+</record_update>

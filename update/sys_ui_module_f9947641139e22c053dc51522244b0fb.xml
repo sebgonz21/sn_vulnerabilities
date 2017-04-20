@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="Vulnerabilities KS">94acd20d13da22c053dc51522244b04e</application>
+        <filter/>
+        <name>Category Keywords</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>x_kasp_vulnerabilt_category_keywords_user</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>sebgar01</sys_created_by>
+        <sys_created_on>2016-10-04 21:55:45</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>f9947641139e22c053dc51522244b0fb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Category Keywords</sys_name>
+        <sys_package display_value="Vulnerabilty" source="x_kasp_vulnerabilt">09561e4113da22c053dc51522244b030</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Vulnerabilty">09561e4113da22c053dc51522244b030</sys_scope>
+        <sys_update_name>sys_ui_module_f9947641139e22c053dc51522244b0fb</sys_update_name>
+        <sys_updated_by>sebgar01</sys_updated_by>
+        <sys_updated_on>2016-10-04 21:55:45</sys_updated_on>
+        <table>x_kasp_vulnerabilt_category_keywords</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+</record_update>

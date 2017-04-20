@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_label/>
+        <action_name/>
+        <action_query>false</action_query>
+        <action_run_at>server</action_run_at>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <application/>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_kasp_vulnerabilt_rss_events</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Read RSS Feed</name>
+        <onclick/>
+        <order>100</order>
+        <priority>100</priority>
+        <read_access_action>false</read_access_action>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	
+	var software_keywords = loadSoftwareKeywords();
+	var use_kwords = software_keywords.use;
+	var ignore_kwords = software_keywords.ignore;
+	
+	var category_kwords = loadCategoryKeywords();
+	
+	var xmlDoc = sendHttpForRss();
+
+	var rootNode = xmlDoc.getNode('//channel');
+	
+	//gs.info("Created XML iterator");
+	
+	var iter = rootNode.getChildNodeIterator();
+	
+	var item;
+	var item2;
+	var title;
+	var url;
+	
+	var response;
+	
+	//gs.info("Start loop with iterator");
+	
+	while(iter.hasNext()){
+		item = iter.next();
+		
+		if(item.getNodeName().indexOf("item") == 0){
+			
+			var iter2 = item.getChildNodeIterator();
+			
+			while(iter2.hasNext()){
+				
+				item2 = iter2.next();
+				
+				if(item2.getNodeName() == "title"){
+					title = item2.getTextContent();
+					title = title.toLowerCase();
+				}
+				
+				if(item2.getNodeName() == "link"){
+					url = item2.getTextContent();
+				}
+				
+			}
+			
+			response = checkItem(title);
+			
+			if(response.isVulnerability){
+				createVulnerability(response,title,url);
+			}
+		}
+		
+	}
+	
+	function createVulnerability(vul_obj,vul_title,vul_url){
+		
+		var already_created = false;
+		
+		var rec = new GlideRecord("x_kasp_vulnerabilt_vulnerabilities_rss");
+		rec.query();
+		while(rec.next()){
+			if(rec.getValue('title') == vul_title && rec.getValue('url') == vul_url){
+				already_created = true;
+			}
+		}
+		
+		if(!already_created){
+			
+			//var html = sendHttpForHtml(url);
+			
+			var vul = new GlideRecord("x_kasp_vulnerabilt_vulnerabilities_rss");
+			vul.setValue('software',vul_obj.software);
+			vul.setValue('groups',vul_obj.groups);
+			vul.setValue('title',vul_title);
+			vul.setValue('url',vul_url);
+			//vul.setValue('article',html);
+			vul.insert();
+		}
+		
+	}
+	
+	
+	function checkItem(str){
+		var hasCategory = false;
+		var hasIgnore = false;
+		var hasSoftware = false;
+		
+		var response = {
+			isVulnerability:false,
+			software:"",
+			groups:""
+		};
+		
+		var i;
+		for(i = 0; i < category_kwords.length; i++){
+			if(str.indexOf(category_kwords[i]) >= 0){
+				hasCategory = true;
+				break;
+			}
+		}
+		
+		if(hasCategory){
+			for(i = 0; i < use_kwords.length; i++ ){
+				if(str.indexOf(use_kwords[i].word) >= 0){
+					hasSoftware = true;
+					response.software = use_kwords[i].word;
+					response.groups = use_kwords[i].groups;
+					break;
+				}
+			}
+			
+			for(i = 0; i < ignore_kwords.length; i++ ){
+				if(str.indexOf(ignore_kwords[i].word) >= 0){
+					hasIgnore = true;
+					break;
+				}
+			}
+			
+			if(hasSoftware){
+				response.isVulnerability = true;
+			}else if(hasIgnore){
+				response.isVulnerability = false;
+			}else{
+				response.isVulnerability = true;
+			}
+		
+		}
+		
+		return response;
+		
+	}
+	
+	
+	
+	function loadSoftwareKeywords(){
+		var res;
+		var use = [];
+		var ign = [];
+		//gs.info("Loading Software");
+		var word = new GlideRecord('x_kasp_vulnerabilt_software_keywords');
+		word.query();
+		
+		while(word.next()){
+			//gs.info("Loading " + word.getValue("software"));
+			if(word.getValue('ignore') == 'true'){
+				ign.push({
+					word:word.getValue('software'),
+					groups:word.getValue('groups')
+				});
+			}else{
+				use.push({
+					word:word.getValue('software'),
+					groups:word.getValue('groups')
+				});
+			}
+		}
+		res = {
+			use:use,
+			ignore:ign
+		};
+		
+		//gs.info("Response use " +  res.use.length + " ignore " + res.ignore.length);
+		
+		return res;
+		
+	}
+	function loadCategoryKeywords(){
+		var res = [];
+		//gs.info("Loading Categories");
+		var word = new GlideRecord('x_kasp_vulnerabilt_category_keywords');
+		word.query();
+		
+		while(word.next()){
+			//gs.info("Loading " + word.getValue('keyword'));
+			res.push(word.getValue('keyword'));
+		}
+		
+		//gs.info('Response ' + res.length);
+		
+		return res;
+		
+	}
+	function sendHttpForHtml(page_url){
+		try{
+			var rest = new sn_ws.RESTMessageV2();
+			rest.setHttpMethod("get");
+			
+			rest.setEndpoint(page_url);
+			
+			var response = rest.execute();
+			
+			//gs.info("Page Content obtained");
+			//gs.info(response.getBody());
+			var html = response.getBody();
+			return html;
+		}catch(err){
+			gs.info("Error getting HTML from page on RSS FEED");
+			return null;
+		}
+	}
+	
+	function sendHttpForRss(){
+		
+		try{
+			var rest = new sn_ws.RESTMessageV2();
+			rest.setHttpMethod("get");
+			
+			rest.setEndpoint("https://isc.sans.edu//newssummaryrss.xml");
+			
+			var response = rest.execute();
+			
+			//gs.info("RSS Feed obtained");
+			//gs.info(response.getBody());
+			var xmlDoc = new XMLDocument2();
+			xmlDoc.parseXML(response.getBody());
+			
+			return xmlDoc;
+		}catch(err){
+			gs.info("Error getting rss feed");
+			return null;
+		}
+	}
+	
+	current.deleteRecord();
+	
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>sebgar01</sys_created_by>
+        <sys_created_on>2016-10-04 20:14:35</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>97dcd20d13da22c053dc51522244b035</sys_id>
+        <sys_mod_count>40</sys_mod_count>
+        <sys_name>Read RSS Feed</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Vulnerabilty" source="x_kasp_vulnerabilt">09561e4113da22c053dc51522244b030</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Vulnerabilty">09561e4113da22c053dc51522244b030</sys_scope>
+        <sys_update_name>sys_script_97dcd20d13da22c053dc51522244b035</sys_update_name>
+        <sys_updated_by>sebgar01</sys_updated_by>
+        <sys_updated_on>2017-03-22 17:20:30</sys_updated_on>
+        <template/>
+        <when>async</when>
+    </sys_script>
+</record_update>

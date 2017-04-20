@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="cmdb_ci_vpn" version="2" view="">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>name</element>
+            <list_id display_value="cmdb_ci_vpn" element="NULL" name="cmdb_ci_vpn" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">fb7b258c2b21220045eeaacc17da1599</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2016-08-25 07:15:23</sys_created_on>
+            <sys_id>7f7b258c2b21220045eeaacc17da1599</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2016-08-25 07:15:23</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>short_description</element>
+            <list_id display_value="cmdb_ci_vpn" element="NULL" name="cmdb_ci_vpn" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">fb7b258c2b21220045eeaacc17da1599</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2016-08-25 07:15:23</sys_created_on>
+            <sys_id>ff7b258c2b21220045eeaacc17da1599</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2016-08-25 07:15:23</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>vpn_ci</element>
+            <list_id display_value="cmdb_ci_vpn" element="NULL" name="cmdb_ci_vpn" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">fb7b258c2b21220045eeaacc17da1599</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2016-08-25 07:15:23</sys_created_on>
+            <sys_id>737b258c2b21220045eeaacc17da159a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2016-08-25 07:15:23</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>cmdb_ci_vpn</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>sebgar01</sys_created_by>
+            <sys_created_on>2016-10-05 14:09:14</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>756356d9131a62c053dc51522244b0e3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>cmdb_ci_vpn</sys_name>
+            <sys_package display_value="Vulnerabilty" source="x_kasp_vulnerabilt">09561e4113da22c053dc51522244b030</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Vulnerabilty">09561e4113da22c053dc51522244b030</sys_scope>
+            <sys_update_name>sys_ui_list_cmdb_ci_vpn_null</sys_update_name>
+            <sys_updated_by>sebgar01</sys_updated_by>
+            <sys_updated_on>2016-10-05 14:09:14</sys_updated_on>
+            <sys_user display_value="Sebastian Gonzalez-Garcia">96e7c5caf58e0100649946d7569884b1</sys_user>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

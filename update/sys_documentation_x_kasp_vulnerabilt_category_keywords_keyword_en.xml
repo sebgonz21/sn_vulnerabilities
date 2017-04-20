@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="keyword" label="Keyword" language="en" table="x_kasp_vulnerabilt_category_keywords">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>keyword</element>
+            <help/>
+            <hint/>
+            <label>Keyword</label>
+            <language>en</language>
+            <name>x_kasp_vulnerabilt_category_keywords</name>
+            <plural>Keywords</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>sebgar01</sys_created_by>
+            <sys_created_on>2016-10-04 21:55:46</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>8e947a41139e22c053dc51522244b008</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Keyword</sys_name>
+            <sys_package display_value="Vulnerabilty" source="x_kasp_vulnerabilt">09561e4113da22c053dc51522244b030</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Vulnerabilty">09561e4113da22c053dc51522244b030</sys_scope>
+            <sys_update_name>sys_documentation_x_kasp_vulnerabilt_category_keywords_keyword_en</sys_update_name>
+            <sys_updated_by>sebgar01</sys_updated_by>
+            <sys_updated_on>2016-10-04 21:55:46</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
